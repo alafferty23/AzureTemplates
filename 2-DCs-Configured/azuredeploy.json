@@ -58,7 +58,7 @@
       "metadata": {
         "description": "The location of resources such as templates and DSC modules that the script is dependent"
       },
-      "defaultValue": "[deployment().properties.templateLink.uri]"
+      "defaultValue": "https://raw.githubusercontent.com/alafferty23/AzureTemplates/master/2-DCs-Configured/"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
