@@ -58,7 +58,7 @@
       "metadata": {
         "description": "The location of resources such as templates and DSC modules that the script is dependent"
       },
-      "defaultValue": "https://deployartifacts321.file.core.windows.net/2dcsnewdomain"
+      "defaultValue": "https://deployartifacts321.file.core.windows.net/2dcsnewdomain/"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
