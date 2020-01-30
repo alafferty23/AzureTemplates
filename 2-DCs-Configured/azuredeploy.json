@@ -58,7 +58,7 @@
       "metadata": {
         "description": "The location of resources such as templates and DSC modules that the script is dependent"
       },
-      "defaultValue": "https://deployartifacts321.file.core.windows.net/2-dcs-configured"
+      "defaultValue": "https://deployartifacts321.file.core.windows.net/2dcsnewdomain"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
@@ -101,8 +101,8 @@
       "PepareBDC"
     ],
     "dscModulesUrl": [
-      "[uri(parameters('_artifactsLocation'), 'DSC/CreateADPDC.ps1.zip')]",
-      "[uri(parameters('_artifactsLocation'), 'DSC/PrepareADBDC.ps1.zip')]"
+      "[uri(parameters('_artifactsLocation'), 'dsc/CreateADPDC.ps1.zip')]",
+      "[uri(parameters('_artifactsLocation'), 'dsc/PrepareADBDC.ps1.zip')]"
     ],
     "dscConfigurationScript": [
       "CreateADPDC.ps1",
@@ -130,7 +130,7 @@
       {}
     ],
     "configureADBDCTemplateUri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/configureADBDC.json', parameters('_artifactsLocationSasToken')))]",
-    "adBDCConfigurationModulesURL": "[uri(parameters('_artifactsLocation'), 'DSC/ConfigureADBDC.ps1.zip')]",
+    "adBDCConfigurationModulesURL": "[uri(parameters('_artifactsLocation'), 'dsc/ConfigureADBDC.ps1.zip')]",
     "adBDCConfigurationScript": "ConfigureADBDC.ps1",
     "adBDCConfigurationFunction": "ConfigureADBDC"
   },
