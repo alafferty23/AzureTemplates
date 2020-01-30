@@ -14,12 +14,8 @@
         "centralus",
         "eastus",
         "eastus2",
-        "francecentral",
-        "northeurope",
-        "southeastasia",
-        "ukwest",
-        "westus2",
-        "westeurope"
+        "westus2"
+
       ],
       "defaultValue": "centralus",
       "metadata": {
@@ -85,12 +81,12 @@
     "vnetTemplateUri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/vnet.json', parameters('_artifactsLocationSasToken')))]",
     "nicTemplateUri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/nic.json', parameters('_artifactsLocationSasToken')))]",
     "vmName": [
-      "adPDC",
-      "adBDC"
+      "DC01",
+      "DC02"
     ],
     "nicName": [
-      "adPDCNic",
-      "adBDCNic"
+      "DC01Nic",
+      "DC02Nic"
     ],
     "ipAddress": [
       "10.0.0.4",
@@ -451,5 +447,16 @@
         }
       }
     }
-  ]
+  ],
+  "outputs": {
+    "AdminUserName": {
+      "type": "string",
+      "value": "[reference(parameters('adminUsername'))]"
+    },
+    "AdminPassword": {
+      "type": "securestring",
+      "value": "[reference(parameters('adminpassword'))]"
+    }
+   
+  }
 }
