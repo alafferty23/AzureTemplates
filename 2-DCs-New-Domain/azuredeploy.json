@@ -15,7 +15,7 @@
         "eastus",
         "eastus2",
         "westus2"
-
+       
       ],
       "defaultValue": "centralus",
       "metadata": {
@@ -86,7 +86,7 @@
     ],
     "nicName": [
       "DC01Nic",
-      "DC02Nic"
+      "DCNic"
     ],
     "ipAddress": [
       "10.0.0.4",
@@ -447,16 +447,5 @@
         }
       }
     }
-  ],
-  "outputs": {
-    "AdminUserName": {
-      "type": "string",
-      "value": "[reference(parameters('adminUsername'))]"
-    },
-    "AdminPassword": {
-      "type": "securestring",
-      "value": "[reference(parameters('adminpassword'))]"
-    }
-   
-  }
+  ]
 }
