@@ -168,12 +168,41 @@
             "value": "[variables('adSubnetName')]"
           },
           "subnetRange": {
-            "value": "[variables('adSubnet')]"
-          },
-          "location": {
-            "value": "[parameters('location')]"
+            "value": "[variables('adSubnet')]",
+            "networkSecurityGroup": {
+              "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('adSubnetName'))]"
+            }
+            },
+            "location": {
+              "value": "[parameters('location')]"
+            }
           }
-        }
+      }
+    },
+    {
+      "apiVersion": "2015-05-01-preview",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[variables('adSubnetName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "Allow_RDP",
+            "properties": {
+              "description": "Allow RDP Access",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "[variables('adSubnet')]",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+
+
+            }
+          }
+        ]
       }
     },
     {

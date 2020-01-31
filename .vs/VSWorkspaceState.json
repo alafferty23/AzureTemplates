@@ -5,6 +5,6 @@
     "\\2-DCs-New-Domain",
     "\\2-DCs-New-Domain\\DSC"
   ],
-  "SelectedNode": "\\2-DCs-New-Domain\\azuredeploy.json",
+  "SelectedNode": "\\2-DCs-New-Domain\\azuredeploy.parameters.json",
   "PreviewInSolutionExplorer": false
 }
