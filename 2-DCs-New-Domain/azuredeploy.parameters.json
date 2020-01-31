@@ -13,6 +13,24 @@
     },
     "domainName": {
       "value": "mydomain.local"
+    },
+    "autoShutdownStatus": {
+    "value": "Enabled"
+    },
+    "autoShutdownTime": {
+    "value": "06:00"
+    },
+    "autoShutdownTimeZone": {
+    "value": "UTC"
+    },
+    "autoShutdownNotificationStatus": {
+    "value": "Enabled"
+    },
+    "autoShutdownNotificationLocale": {
+    "value": "en"
+    },
+    "autoShutdownNotificationEmail": {
+    "value": "alafferty@321moonshot.com"
     }
   }
 }

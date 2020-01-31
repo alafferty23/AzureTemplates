@@ -15,7 +15,7 @@
         "eastus",
         "eastus2",
         "westus2"
-       
+
       ],
       "defaultValue": "centralus",
       "metadata": {
@@ -41,6 +41,24 @@
       "metadata": {
         "description": "The DNS prefix for the public IP address used by the Load Balancer"
       }
+    },
+    "autoShutdownStatus": {
+      "type": "string"
+    },
+    "autoShutdownTime": {
+      "type": "string"
+    },
+    "autoShutdownTimeZone": {
+      "type": "string"
+    },
+    "autoShutdownNotificationStatus": {
+      "type": "string"
+    },
+    "autoShutdownNotificationLocale": {
+      "type": "string"
+    },
+    "autoShutdownNotificationEmail": {
+      "type": "string"
     },
     "vmSize": {
       "type": "string",
@@ -327,6 +345,29 @@
       }
     },
     {
+      "name": "[concat('shutdown-computevm-', variables('vmName'))]",
+      "type": "Microsoft.DevTestLab/schedules",
+      "apiVersion": "2017-04-26-preview",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+      ],
+      "properties": {
+        "status": "[parameters('autoShutdownStatus')]",
+        "taskType": "ComputeVmShutdownTask",
+        "dailyRecurrence": {
+          "time": "[parameters('autoShutdownTime')]"
+        },
+        "timeZoneId": "[parameters('autoShutdownTimeZone')]",
+        "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]",
+        "notificationSettings": {
+          "status": "[parameters('autoShutdownNotificationStatus')]",
+          "notificationLocale": "[parameters('autoShutdownNotificationLocale')]",
+          "timeInMinutes": "30"
+        }
+      }
+    },
+    {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2018-11-01",
       "name": "UpdateBDCNIC",
@@ -447,5 +488,6 @@
         }
       }
     }
+
   ]
 }
