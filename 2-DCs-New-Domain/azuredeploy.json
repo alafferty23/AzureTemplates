@@ -59,10 +59,6 @@
       "type": "string",
       "defaultValue":  "Enable"
     },
-    "autoShutdownNotificationLocale": {
-      "type": "string",
-      "defaultValue":  "en"
-    },
     "autoShutdownNotificationEmail": {
       "type": "string",
       "defaultValue": "alafferty@321moonshot.com"
@@ -369,7 +365,6 @@
         "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]",
         "notificationSettings": {
           "status": "[parameters('autoShutdownNotificationStatus')]",
-          "notificationLocale": "en",
           "timeInMinutes": "30"
         }
       }

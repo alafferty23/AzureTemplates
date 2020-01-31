@@ -26,9 +26,6 @@
     "autoShutdownNotificationStatus": {
     "value": "Enabled"
     },
-    "autoShutdownNotificationLocale": {
-    "value": "en"
-    },
     "autoShutdownNotificationEmail": {
     "value": "alafferty@321moonshot.com"
     }
