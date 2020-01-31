@@ -5,6 +5,9 @@
     "adminUsername": {
       "value": ""
     },
+    "AppNSGName": {
+      "value": "appnsg"
+    },
     "adminPassword": {
       "value": "GEN-PASSWORD"
     },
@@ -14,20 +17,23 @@
     "domainName": {
       "value": "contoso.local"
     },
+    "adSubnetNSGName": {
+      "value": "adDCsNSG"
+    },
     "autoShutdownStatus": {
-    "value": "Enabled"
+      "value": "Enabled"
     },
     "autoShutdownTime": {
-    "value": "06:00"
+      "value": "06:00"
     },
     "autoShutdownTimeZone": {
-    "value": "UTC"
+      "value": "UTC"
     },
     "autoShutdownNotificationStatus": {
-    "value": "Enabled"
+      "value": "Enabled"
     },
     "autoShutdownNotificationEmail": {
-    "value": "alafferty@321moonshot.com"
+      "value": "alafferty@321moonshot.com"
     }
   }
 }
