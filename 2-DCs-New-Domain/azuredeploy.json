@@ -158,6 +158,9 @@
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2018-11-01",
         "name": "CreateVNet",
+        "dependsOn": [ 
+          "[concat('Microsoft.Network/networkSecurityGroups/', parameters('adSubnetNSGName'))]"
+        ],
         "properties": {
           "mode": "Incremental",
           "templateLink": {
@@ -177,7 +180,7 @@
             "subnetRange": {
               "value": "[variables('adSubnet')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('adSubnetName'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('adSubnet'))]"
               }
             },
             "location": {
