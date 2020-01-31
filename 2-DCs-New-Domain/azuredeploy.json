@@ -43,26 +43,6 @@
         "description": "The DNS prefix for the public IP address used by the Load Balancer"
       }
     },
-    "autoShutdownStatus": {
-      "type": "string",
-      "defaultValue": "Enabled"
-    },
-    "autoShutdownTime": {
-      "type": "string",
-      "defaultValue": "18:00"
-    },
-    "autoShutdownTimeZone": {
-      "type": "string",
-      "defaultValue": "UTC"
-    },
-    "autoShutdownNotificationStatus": {
-      "type": "string",
-      "defaultValue":  "Enable"
-    },
-    "autoShutdownNotificationEmail": {
-      "type": "string",
-      "defaultValue": "alafferty@321moonshot.com"
-    },
     "vmSize": {
       "type": "string",
       "defaultValue": "Standard_D2s_v3",
@@ -344,28 +324,6 @@
           "location": {
             "value": "[parameters('location')]"
           }
-        }
-      }
-    },
-    {
-      "name": "[concat('shutdown-computevm-', variables('vmName'))]",
-      "type": "Microsoft.DevTestLab/schedules",
-      "apiVersion": "2017-04-26-preview",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-      ],
-      "properties": {
-        "status": "[parameters('autoShutdownStatus')]",
-        "taskType": "ComputeVmShutdownTask",
-        "dailyRecurrence": {
-          "time": "[parameters('autoShutdownTime')]"
-        },
-        "timeZoneId": "[parameters('autoShutdownTimeZone')]",
-        "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]",
-        "notificationSettings": {
-          "status": "[parameters('autoShutdownNotificationStatus')]",
-          "timeInMinutes": "30"
         }
       }
     },
