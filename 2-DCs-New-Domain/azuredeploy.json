@@ -369,7 +369,7 @@
         "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]",
         "notificationSettings": {
           "status": "[parameters('autoShutdownNotificationStatus')]",
-          "notificationLocale": "[parameters('autoShutdownNotificationLocale')]",
+          "notificationLocale": "en",
           "timeInMinutes": "30"
         }
       }
