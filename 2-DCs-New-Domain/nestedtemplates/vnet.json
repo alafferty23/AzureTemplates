@@ -33,13 +33,19 @@
         "Description": "The DNS address(es) of the DNS Server(s) used by the VNET"
       }
     },
+    "DCsNSGName": {
+      "type": "string",
+      "metadata": {
+        "Description": "The name of the NSG to protect the DC Subnet"
+      }
+    },
     "location": {
       "type": "string",
       "metadata": {
-        "description": "Location for all resources."
+      "description": "Location for all resources."
+        }
       }
-    }
-  },
+    },
   "variables": {
     "dhcpOptions": {
       "dnsServers": "[parameters('DNSServerAddress')]"
@@ -64,7 +70,7 @@
             "properties": {
               "addressPrefix": "[parameters('subnetRange')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('DCsNSGName'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('DCsNSGName'))]"
               }
             }
           }
