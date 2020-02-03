@@ -297,7 +297,7 @@
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('DCsNSGName')]",
+      "name": "[variables('DCsNSGName')]",
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
@@ -345,7 +345,7 @@
             "value": "[variables('adSubnet')]"
           },
           "DCsNSGName": {
-            "value": "parameters('DCsNSGName')]"
+            "value": "[variables('DCsNSGName')]"
           },
           "DNSServerAddress": {
             "value": [
