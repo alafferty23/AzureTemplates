@@ -350,6 +350,9 @@
           "subnetRange": {
             "value": "[variables('adSubnet')]"
           },
+          "DCsNSGName": {
+            "value": "parameters('DCsNSGName')]"
+          },
           "DNSServerAddress": {
             "value": [
               "[variables('ipAddress')[0]]"
