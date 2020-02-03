@@ -49,7 +49,10 @@
   "variables": {
     "dhcpOptions": {
       "dnsServers": "[parameters('DNSServerAddress')]"
-    }
+    },
+      "DCsNSGName": {
+        "dcsNSGName":  "parameters('DCsNSGName')]"
+      }
   },
   "resources": [
     {
@@ -70,7 +73,7 @@
             "properties": {
               "addressPrefix": "[parameters('subnetRange')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('DCsNSGName'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('DCsNSGName'))]"
               }
             }
           }
