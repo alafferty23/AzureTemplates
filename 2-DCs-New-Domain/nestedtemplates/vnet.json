@@ -28,7 +28,6 @@
     },
     "DCsNSGName": {
       "type": "string",
-      "defaultValue": "DCsNSG",
       "metadata": {
         "description": "The name of the NSG for DC's "
       }
