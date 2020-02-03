@@ -73,6 +73,7 @@
     "virtualNetworkAddressRange": "10.0.0.0/16",
     "adSubnetName": "adSubnet",
     "adSubnet": "10.0.0.0/24",
+    "dcsNSGName": "DCsNSG",
     "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('adSubnetName'))]",
     "publicIPAddressName": "adPublicIp",
     "publicIPAddressType": "Static",
@@ -473,7 +474,7 @@
             "value": "[variables('ipAddress')]"
           },
           "DCsNSGName": {
-            "value": "[parameters('DCsNSGName')]"
+            "value": "[variables('DCsNSGName')]"
           },
           "location": {
             "value": "[parameters('location')]"
