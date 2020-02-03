@@ -158,7 +158,7 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2018-11-01",
       "name": "CreateVNet",
-      "dependsoOn": [
+      "dependsOn": [
         "[concat('Microsoft.Network/networkSecurityGroups/', parameters('DCsNSGName'))]"
       ],
       "properties": {
