@@ -8,11 +8,14 @@
     "adminPassword": {
       "value": "GEN-PASSWORD"
     },
-    "dnsPrefix": {
-      "value": "GEN-UNIQUE"
+    "DCsNSGName": {
+      "value": "DCsNSG"
     },
-    "domainName": {
-      "value": "contoso.local"
+      "dnsPrefix": {
+        "value": "GEN-UNIQUE"
+      },
+      "domainName": {
+        "value": "contoso.local"
+      }
     }
   }
-}
