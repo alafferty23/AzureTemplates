@@ -479,6 +479,9 @@
           "DNSServerAddress": {
             "value": "[variables('ipAddress')]"
           },
+          "DCsNSGName": {
+            "value": "[parameters('DCsNSGName')]"
+          },
           "location": {
             "value": "[parameters('location')]"
           }
