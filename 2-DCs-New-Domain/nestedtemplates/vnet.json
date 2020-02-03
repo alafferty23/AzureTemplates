@@ -26,12 +26,6 @@
         "Description": "The address range of the subnet created in the new VNET"
       }
     },
-    "DCsNSGName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the NSG for DC's "
-      }
-    },
     "DNSServerAddress": {
       "type": "array",
       "defaultValue": [],
