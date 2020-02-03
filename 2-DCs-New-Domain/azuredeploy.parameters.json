@@ -11,10 +11,10 @@
     "DCsNSGName": {
       "value": "DCsNSG"
     },
-      "dnsPrefix": {
-        "value": "GEN-UNIQUE"
-      },
-      "domainName": {
+    "dnsPrefix": {
+      "value": "GEN-UNIQUE"
+    },
+    "domainName": {
         "value": "contoso.local"
       }
     }
