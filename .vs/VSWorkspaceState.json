@@ -6,6 +6,6 @@
     "\\2-DCs-New-Domain\\DSC",
     "\\2-DCs-New-Domain\\nestedtemplates"
   ],
-  "SelectedNode": "\\2-DCs-New-Domain\\azuredeploy.parameters.json",
+  "SelectedNode": "\\2-DCs-New-Domain\\nestedtemplates\\vnet.json",
   "PreviewInSolutionExplorer": false
 }

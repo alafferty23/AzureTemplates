@@ -4,7 +4,6 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
-      "defaultValue": "localadmin",
       "metadata": {
         "description": "The name of the Administrator of the new VM and Domain"
       }
@@ -15,8 +14,12 @@
         "centralus",
         "eastus",
         "eastus2",
-        "westus2"
-
+        "francecentral",
+        "northeurope",
+        "southeastasia",
+        "ukwest",
+        "westus2",
+        "westeurope"
       ],
       "defaultValue": "centralus",
       "metadata": {
@@ -73,7 +76,6 @@
     "virtualNetworkAddressRange": "10.0.0.0/16",
     "adSubnetName": "adSubnet",
     "adSubnet": "10.0.0.0/24",
-    "dcsNSGName": "DCsNSG",
     "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('adSubnetName'))]",
     "publicIPAddressName": "adPublicIp",
     "publicIPAddressType": "Static",
@@ -83,12 +85,12 @@
     "vnetTemplateUri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/vnet.json', parameters('_artifactsLocationSasToken')))]",
     "nicTemplateUri": "[uri(parameters('_artifactsLocation'), concat('nestedtemplates/nic.json', parameters('_artifactsLocationSasToken')))]",
     "vmName": [
-      "DC01",
-      "DC02"
+      "adPDC",
+      "adBDC"
     ],
     "nicName": [
-      "DC01Nic",
-      "DCNic"
+      "adPDCNic",
+      "adBDCNic"
     ],
     "ipAddress": [
       "10.0.0.4",
@@ -152,9 +154,6 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2018-11-01",
       "name": "CreateVNet",
-      "dependsOn": [
-        "[concat('Microsoft.Network/networkSecurityGroups/', variables('DCsNSGName'))]"
-      ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -295,30 +294,6 @@
       }
     },
     {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[variables('DCsNSGName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "securityRules": [
-          {
-            "name": "Block_RDP_Internet",
-            "properties": {
-              "description": "Block RDP",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Deny",
-              "priority": 101,
-              "direction": "Inbound"
-            }
-          }
-        ]
-      }
-    },
-    {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2018-11-01",
       "name": "UpdateVNetDNS1",
@@ -343,9 +318,6 @@
           },
           "subnetRange": {
             "value": "[variables('adSubnet')]"
-          },
-          "DCsNSGName": {
-            "value": "[variables('DCsNSGName')]"
           },
           "DNSServerAddress": {
             "value": [
@@ -473,15 +445,11 @@
           "DNSServerAddress": {
             "value": "[variables('ipAddress')]"
           },
-          "DCsNSGName": {
-            "value": "[variables('DCsNSGName')]"
-          },
           "location": {
             "value": "[parameters('location')]"
           }
         }
       }
     }
-
   ]
 }
