@@ -26,6 +26,12 @@
         "Description": "The address range of the subnet created in the new VNET"
       }
     },
+    "dcsnsgName": {
+      "type": "string",
+      "metadata": {
+        "Description": "The address range of the subnet created in the new VNET"
+      }
+    },
     "DNSServerAddress": {
       "type": "array",
       "defaultValue": [],
@@ -62,7 +68,10 @@
           {
             "name": "[parameters('subnetName')]",
             "properties": {
-              "addressPrefix": "[parameters('subnetRange')]"
+              "addressPrefix": "[parameters('subnetRange')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('dcsnsgName'))]"
+              }
             }
           }
         ]
