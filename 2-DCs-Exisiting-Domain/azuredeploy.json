@@ -201,7 +201,7 @@
           "subnetRange": {
             "value": "[variables('adSubnet')]"
           },
-          "dcsnsgName2": {
+          "dcsnsgName": {
             "value": "[variables('networkSecurityGroupName')]"
           },
           "location": {
