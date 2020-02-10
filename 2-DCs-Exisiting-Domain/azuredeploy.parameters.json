@@ -8,6 +8,9 @@
     "adminPassword": {
       "value": "GEN-PASSWORD"
     },
+    "dcsnsgName": {
+      "value": ""
+    },
     "dnsPrefix": {
       "value": "GEN-UNIQUE"
     },
