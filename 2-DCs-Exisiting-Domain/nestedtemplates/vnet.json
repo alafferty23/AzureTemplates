@@ -26,7 +26,7 @@
         "Description": "The address range of the subnet created in the new VNET"
       }
     },
-    "dcsnsgName3": {
+    "dcsnsgName": {
       "type": "string",
       "metadata": {
         "Description": "The address range of the subnet created in the new VNET"
@@ -70,7 +70,7 @@
             "properties": {
               "addressPrefix": "[parameters('subnetRange')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('dcsnsgName3'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('dcsnsgName'))]"
               }
             }
           }
