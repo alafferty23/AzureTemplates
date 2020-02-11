@@ -46,6 +46,13 @@
         "description": "The DNS prefix for the public IP address used by the Load Balancer"
       }
     },
+    "adnetworkSecurityGroupName": {
+      "type": "string",
+      "defaultValue": "DCs-NSG",
+      "metadata": {
+        "description": "The DNS prefix for the public IP address used by the Load Balancer"
+      }
+    },
     "vmSize": {
       "type": "string",
       "defaultValue": "Standard_D2s_v3",
@@ -78,7 +85,6 @@
     "adSubnet": "10.0.0.0/24",
     "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('adSubnetName'))]",
     "publicIPAddressName": "adPublicIp",
-    "networkSecurityGroupName": "DCs-NSG",
     "publicIPAddressType": "Static",
     "publicIpAddressId": {
       "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
@@ -155,7 +161,7 @@
       "comments": "Default Network Security Group for template",
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2019-08-01",
-      "name": "[variables('networkSecurityGroupName')]",
+      "name": "[parameters('adnetworkSecurityGroupName')]",
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
@@ -180,7 +186,7 @@
       "apiVersion": "2018-11-01",
       "name": "CreateVNet",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('adnetworkSecurityGroupName'))]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -202,7 +208,7 @@
             "value": "[variables('adSubnet')]"
           },
           "nsgId": {
-            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('adnetworkSecurityGroupName'))]"
           },
           "location": {
             "value": "[parameters('location')]"
