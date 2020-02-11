@@ -46,13 +46,6 @@
         "description": "The DNS prefix for the public IP address used by the Load Balancer"
       }
     },
-    "adnetworkSecurityGroupName": {
-      "type": "string",
-      "defaultValue": "DCs-NSG",
-      "metadata": {
-        "description": "The DNS prefix for the public IP address used by the Load Balancer"
-      }
-    },
     "vmSize": {
       "type": "string",
       "defaultValue": "Standard_D2s_v3",
@@ -83,7 +76,7 @@
     "virtualNetworkAddressRange": "10.0.0.0/16",
     "adSubnetName": "adSubnet",
     "adSubnet": "10.0.0.0/24",
-    "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('adSubnetName'))]",
+    "adSubnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), 'adNsgName')]",
     "publicIPAddressName": "adPublicIp",
     "publicIPAddressType": "Static",
     "publicIpAddressId": {
@@ -161,7 +154,7 @@
       "comments": "Default Network Security Group for template",
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2019-08-01",
-      "name": "[parameters('adnetworkSecurityGroupName')]",
+      "name": "adNsgName",
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
@@ -186,7 +179,7 @@
       "apiVersion": "2018-11-01",
       "name": "CreateVNet",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('adnetworkSecurityGroupName'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', 'adNsgName')]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -208,7 +201,7 @@
             "value": "[variables('adSubnet')]"
           },
           "nsgId": {
-            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('adnetworkSecurityGroupName'))]"
+            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', 'adNsgName')]"
           },
           "location": {
             "value": "[parameters('location')]"
