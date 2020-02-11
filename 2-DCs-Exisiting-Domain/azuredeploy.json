@@ -156,9 +156,6 @@
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2019-08-01",
       "name": "[variables('networkSecurityGroupName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', variables('adSubnetName'))]"
-      ],
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
