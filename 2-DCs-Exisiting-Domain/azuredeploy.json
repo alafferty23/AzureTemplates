@@ -201,6 +201,9 @@
           "subnetRange": {
             "value": "[variables('adSubnet')]"
           },
+          "nsgId": {
+            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+          },
           "location": {
             "value": "[parameters('location')]"
           }
