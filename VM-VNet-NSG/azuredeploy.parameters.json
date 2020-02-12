@@ -3,16 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageNamePrefix": {
-      "value": "samsdn"
+      "value": ""
     },
     "adminUsername": {
-      "value": "azureadmin"
+      "value": ""
     },
     "adminPassword": {
-      "value": "Password2020!"
+      "value": ""
     },
     "dnsNameForPublicIP": {
-      "value": "pipmsdn"
+      "value": ""
     }
   }
 }

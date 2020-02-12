@@ -4,12 +4,14 @@
   "parameters": {
     "storageNamePrefix": {
       "type": "string",
+      "defaultValue": "samsdn",
       "metadata": {
         "description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
       }
     },
     "adminUsername": {
       "type": "string",
+      "defaultValue": "azureAdmin",
       "metadata": {
         "description": "Username for the Virtual Machine."
       }
@@ -22,8 +24,9 @@
     },
     "dnsNameForPublicIP": {
       "type": "string",
+      "defaultValue": "pip",
       "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+      "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
     },
     "windowsOSVersion": {
